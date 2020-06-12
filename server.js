@@ -1,4 +1,5 @@
 var express = require("express");
+var middleware = require("./middleware");
 var app = express();
 var PORT = 3000;
 // localhost:3000
@@ -6,16 +7,16 @@ var PORT = 3000;
 //     res.send("Merhaba express!!")
 // })
 
-var middleware = {
-    requireAuthentication : (req, res, next) => {
-        console.log("Özel route girildi!!");
-        next();
-    },
-    logger : (req, res, next) => {
-        console.log(req.method + " " + req.originalUrl);
-        next();
-    }
-}
+// var middleware = {
+//     requireAuthentication : (req, res, next) => {
+//         console.log("Özel route girildi!!");
+//         next();
+//     },
+//     logger : (req, res, next) => {
+//         console.log(req.method + " " + req.originalUrl);
+//         next();
+//     }
+// }
 
 app.use(middleware.logger);
 
